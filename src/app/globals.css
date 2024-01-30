@@ -17,11 +17,24 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* color: rgb(var(--foreground-rgb)); */
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  background-color: #E4E5DB;
+}
+
+.profile__btn {
+  @apply flex gap-3 p-2 w-[10rem] justify-center items-center text-white rounded-b-xl cursor-pointer;
+}
+
+.profile__upward__btn {
+  @apply flex gap-1 p-1 w-[10rem] items-center text-white
+}
+
+.role__btn {
+  @apply px-2 transition-transform duration-1000 rounded-md
 }
