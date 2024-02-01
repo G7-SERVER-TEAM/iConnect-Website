@@ -40,7 +40,7 @@ export default function Login() {
                 <input type='password' className='block border-black border-[1px] rounded-[30px] w-full px-5 mb-4'></input>
               </div>
                 <button type="submit" className='bg-[#00818A] text-white rounded-[30px] cursor-pointer p-1'>
-                  <Link href='/business-overview'>Login</Link>
+                  <Link href='/usage-overview'>Login</Link>
                 </button>
             </form>
         </div>
