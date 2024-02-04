@@ -2,8 +2,9 @@ import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
+import UserManagement from '../page'
 
-const addAccountPage = () => {
+const UserManagementAdd = () => {
   
   return (
     <Container>
@@ -29,4 +30,4 @@ const addAccountPage = () => {
   )
 }
 
-export default addAccountPage;
+export default UserManagementAdd;
