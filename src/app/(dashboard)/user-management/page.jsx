@@ -48,7 +48,7 @@ const users = [
 ];
 
 
-export default function manageAccountPage() {
+const UserManagement = () => {
   return (
     <Container>
       <div className='w-full flex flex-col items-start gap-4 pt-16'>
@@ -91,3 +91,5 @@ export default function manageAccountPage() {
     </Container>
   )
 }
+
+export default UserManagement;

@@ -6,7 +6,7 @@ import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/Profile/Form'
 
-const profilePage = () => {
+const EditProfile = () => {
   
   const [userId, setUserId] = useState()
   const [username, setUsername] = useState()
@@ -41,4 +41,4 @@ const profilePage = () => {
   )
 }
 
-export default profilePage;
+export default EditProfile;
