@@ -86,6 +86,15 @@ const SettingContainer = ({title}) => {
           <div className="whitespace-nowrap">เพิ่มการตั้งค่า</div>
         </div>
       </div>
+
+      <div className="w-full flex flex-row justify-end gap-3">
+        <a
+          href="/price-config"
+          className="text-center cursor-pointer bg-gray-300 text-black px-10 py-1 rounded-full whitespace-nowrap"
+        >
+          กลับ
+        </a>
+      </div>  
       
     </div>
   )
