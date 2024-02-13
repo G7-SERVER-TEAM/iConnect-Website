@@ -11,7 +11,7 @@ import {
 } from "@nextui-org/react";
 import { Icon } from '@iconify/react';
 
-const AccountTable = ({items}) => {
+const ManageAccountTable = ({items}) => {
 
   const doRemoveAccount = (id) => {
     // console.log(id)
@@ -58,4 +58,4 @@ const AccountTable = ({items}) => {
   );
 }
 
-export default AccountTable;
+export default ManageAccountTable;

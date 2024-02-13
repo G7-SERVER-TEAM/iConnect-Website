@@ -6,7 +6,7 @@ import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
 
-const editAccountPage = () => {
+const UserManagementEdit = () => {
   
   const [userId, setUserId] = useState()
   const [username, setUsername] = useState()
@@ -44,4 +44,4 @@ const editAccountPage = () => {
   )
 }
 
-export default editAccountPage;
+export default UserManagementEdit;
