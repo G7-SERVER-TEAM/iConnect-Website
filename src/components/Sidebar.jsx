@@ -74,7 +74,7 @@ const Sidebar = ({ children }) => {
                   <RiEditBoxFill size={20}/>
                   <p className='text-lg'>แก้ไขโปรไฟล์</p>
                 </Link>
-                <Link href="/" className='profile__upward__btn hover:bg-[#00818A]'>
+                <Link href="/login" className='profile__upward__btn hover:bg-[#00818A]'>
                   <RiLogoutBoxRFill size={20}/>
                   <p className='text-lg'>Logout</p>
                 </Link>

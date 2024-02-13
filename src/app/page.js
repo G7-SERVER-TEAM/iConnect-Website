@@ -1,17 +1,18 @@
-'use client'
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState, } from 'react'
+import './globals.css'
 
-export default function Login() {
-  const [isClick, setIsClick] = useState(false)
+
+export default function Main() {
+  // const [isClick, setIsClick] = useState(false)
 
   return (
     <div className='flex min-h-screen justify-center items-center'>
-        <div className='flex flex-col gap-2 items-center bg-white rounded-[20px] w-96 pt-10 pb-10'>
+        {/* <div className='flex flex-col gap-2 items-center bg-white rounded-[20px] w-96 pt-10 pb-10'>
             <div className='flex flex-row gap-2 items-center'>
               <div className='bg-[#01352C] rounded-full p-2'>
-                <Image alt="Icon" src={"/WelcomePicture.png"} width={50} height={50} />
+                <Image alt="Icon" src={"/WelcomePicture.png"} 
+                width={50} height={50} 
+                priority={true}
+                />
               </div>
               <h1 className='font-semibold text-xl text-[#01352C]'>iConnect</h1>
             </div>
@@ -31,19 +32,20 @@ export default function Login() {
                 </button>
             </div>
             <form className='flex flex-col'>
-              <div className='flex flex-col'>
-                <label className='block text-[#404B69]'>Username</label>
-                <input type='text' className='block border-black border-[1px] rounded-[30px] w-full px-5'></input>
-              </div>
-              <div className='flex flex-col'>
-                <label className='block text-[#404B69]'>Password</label>
-                <input type='password' className='block border-black border-[1px] rounded-[30px] w-full px-5 mb-4'></input>
-              </div>
-                <button type="submit" className='bg-[#00818A] text-white rounded-[30px] cursor-pointer p-1'>
+              <Form label="Username" type="text"/>
+              <Form label="Password" type="password"/>
+              <button type="submit" 
+                className='bg-[#00818A] text-white rounded-[30px] cursor-pointer p-1 mt-3'
+              >
+                { isClick?
+                  <Link href='/business-overview'>Login</Link>
+                  :
                   <Link href='/usage-overview'>Login</Link>
-                </button>
+                  }
+              </button>
             </form>
-        </div>
+        </div> */}
+        <h1>Hello</h1>
     </div>    
   )
 }

@@ -15,10 +15,12 @@ const UsageOverview = () => {
             <p className='text-[#A7A7A7]'>จำนวนผู้เข้าใช้บริการพื้นที่จอดรถทั้งหมด</p>
             <p className='text-2xl font-bold'>5,555 คน</p>
           </div>
-          <button className='flex bg-[#EBEBEB] rounded-full h-8 p-1 text-[#404B69] items-center justify-center'>
-            <p>This year</p>
-            <RiArrowDownSFill size={20}/>
-          </button>
+          <div className=''>
+            <select name="pick-time" id="pick-time" className='bg-[#EBEBEB] text-[#404B69] font-light rounded-full text-center'>
+              <option value="ปีนี้">ปีนี้</option>
+              <option value="ปีที่แล้ว">ปีที่แล้ว</option>
+            </select>
+          </div>
         </div>
       </div>
       <div className='flex w-[64rem] justify-end'>

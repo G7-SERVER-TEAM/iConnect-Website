@@ -9,7 +9,7 @@ export default function BusinessOverview() {
       style={{overflow: 'hidden'}}
     >
       <div className="flex borderxborder-black">
-        <div className="borderxborder-black" style={{ width: '270px',height: '749px' }}>
+        {/* <div className="borderxborder-black" style={{ width: '270px',height: '749px' }}>
           <div className="borderxborder-black" style={{ marginTop: '12px',height: '100px' }}>
             <h1 className="text-black borderxborder-black">
               iconnect
@@ -35,7 +35,7 @@ export default function BusinessOverview() {
               john spem
             </h1>      
           </div> 
-        </div>
+        </div> */}
         <div className="borderxborder-black" style={{ backgroundColor: '#E4E5DB', width: '100%',height: '100vh' }}>
           <div className="borderxborder-black" style={{ marginTop: '50px',height: '50px' }}>
             <h1 className="text-black borderxborder-black" style={{ color: '#000000',marginTop: '6px',marginLeft: '47px',fontSize: '32px', fontWeight: 'bold',height: '35px',lineHeight: '0.9' }}>
