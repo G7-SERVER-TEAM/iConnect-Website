@@ -31,3 +31,22 @@ body {
 .role__btn {
   @apply px-2 transition-transform duration-1000 rounded-md
 }
+
+.select-input {
+  position: relative;
+}
+
+.select-input::after {
+  position: absolute;
+  content: "▼";
+  font-size: .75rem;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.select-input > select {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+}
