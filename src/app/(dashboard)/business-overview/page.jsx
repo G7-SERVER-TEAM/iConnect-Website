@@ -1,125 +1,114 @@
 import Image from 'next/image'
-import React from 'react';
-
+import React  from 'react';
 
 export default function BusinessOverview() {
   return (
-    <main
-      className="bg-white h-screen borderxborder-black"
-      style={{overflow: 'hidden'}}
-    >
-      <div className="flex borderxborder-black">
-        <div className="borderxborder-black" style={{ width: '270px',height: '749px' }}>
-          <div className="borderxborder-black" style={{ marginTop: '12px',height: '100px' }}>
-            <h1 className="text-black borderxborder-black">
-              iconnect
-            </h1>
-          </div>
-          <div className="borderxborder-black" style={{ marginTop: '30px', marginLeft: '7px',marginRight: '7px',height: '46px' }}>
-            <h1 className="text-black borderxborder-black">
-              ภาพรวม
-            </h1>  
-          </div> 
-          <div className="borderxborder-black" style={{ marginTop: '14px', marginLeft: '7px',marginRight: '7px',height: '46px' }}>
-            <h1 className="text-black borderxborder-black">
-              พฤติกรรมผู้ใช้บริการ
-            </h1> 
-          </div>   
-          <div className="borderxborder-black" style={{ marginTop: '14px', marginLeft: '7px',marginRight: '7px',height: '46px' }}>
-            <h1 className="text-black borderxborder-black">
-              จัดการสมาชิก
-            </h1>     
-          </div>    
-          <div className="borderxborder-black" style={{ marginTop: '365px', marginLeft: '7px',marginRight: '7px',height: '69px' }}> 
-            <h1 className="text-black borderxborder-black">
-              john spem
-            </h1>      
-          </div> 
-        </div>
-        <div className="borderxborder-black" style={{ backgroundColor: '#E4E5DB', width: '100%',height: '100vh' }}>
-          <div className="borderxborder-black" style={{ marginTop: '50px',height: '50px' }}>
-            <h1 className="text-black borderxborder-black" style={{ color: '#000000',marginTop: '6px',marginLeft: '47px',fontSize: '32px', fontWeight: 'bold',height: '35px',lineHeight: '0.9' }}>
+    <main className="h-screen borderxborder-black text-[calc(1024px/100/17.665)] lg:text-[calc(1vw/17.0665)]">
+        <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
+          <div className="borderxborder-black mt-[50em] pt-[6em] pl-[47em] leading-[27em]">
+            <h1 className="text-[30em] text-black borderxborder-black font-bold">
                 ภาพรวมธรุกิจ
             </h1>
-          </div>
-          
-          <div className="borderxborder-black flex" style={{ marginTop: '17px'}}>
-            <div className="borderxborder-black" style={{ margin:'auto',padding:'10px'}}>
-                <div className="flex borderxborder-black" style={{ height: '28px' }}>   
-                  <div className="borderxborder-black" style={{ marginLeft: '574px',width: '126px' }}>
-                    <h1 className="text-black borderxborder-black">
-                      รายวัน
-                    </h1>  
+          </div>   
+          <div className="borderborder-black flex mt-[17em]">
+            <div className="borderborder-black p-[10em] m-auto">
+                <div className="flex borderxborder-black h-[28em]">   
+                  <div className="borderxborder-red-500 ml-[546em] mx-[12em] w-[120em] h-[24.89em]">
+                    <select className="text-[17em] w-full h-full border border-gray-400 rounded-full">
+                      <option value="">เลือกรายเวลา</option>
+                      <option value="location_a">รายวัน</option>
+                      <option value="location_b">รายเดือน</option>
+                      <option value="location_c">รายไตรมาส</option>
+                      <option value="location_d">รายปี</option>
+                    </select>
                   </div>  
-                  <div className="borderxborder-black" style={{ width: '45px' }}>
-                    <h1 className="text-black borderxborder-black" style={{color: '#404B69',marginLeft: '2px',marginTop: '4px',lineHeight: '16px'}}>
+                  <div className="borderxborder-black w-[45em] ml-[2em] mt-[4em] leading-[18em]">
+                    <h1 className="borderxborder-black text-[18em] text-[#404B69]">
                       เดือน:
                     </h1>
                   </div>   
-                  <div className="borderxborder-black" style={{ width: '110px' }}>
-                    <h1 className="text-black borderxborder-black">
-                      ตุลาคม
-                    </h1>  
-                  </div>
+                  <div className="borderxborder-black ml-[12em] w-[120em] h-[24.89em]">
+                    <select className="text-[17em] w-full h-full border border-gray-400 rounded-full">
+                      <option value="">เลือกรายเวลา</option>
+                      <option value="location_a">รายวัน</option>
+                      <option value="location_b">รายเดือน</option>
+                      <option value="location_c">รายไตรมาส</option>
+                      <option value="location_d">รายปี</option>
+                    </select>
+                  </div>   
                 </div>
-                <div className="flex borderxborder-black" style={{ marginTop: '8px',height: '187px' }}>   
-                  <div className="borderxborder-black" style={{ backgroundColor: '#FFFFFF',width: '420px',borderRadius: '8px' }}>
-                    <h1 className="text-black borderxborder-black" style={{ color: '#404B69',marginLeft: '26px', marginTop: '37px',fontSize: '33px',lineHeight: '45px',height: '38px' }}>
-                      รายได้เฉลี่ย
-                    </h1> 
-                    <h1 className="text-black borderxborder-black" style={{ color: '#000000',marginLeft: '26px', marginTop: '6px',fontSize: '52px',fontWeight: 'bold',lineHeight: '45px',height: '52px' }}>
-                      XXX,XXX บาท
-                    </h1> 
+                <div className="flex borderxborder-black h-[187em] mt-[8em]">   
+                  <div className="borderxborder-black w-[420em] bg-[#FFFFFF] rounded-[8px]">
+                    <div className="borderxborder-black ml-[26em] mt-[37em] leading-[45em] h-[38em]">                      
+                      <h1 className="text-[30em] text-[#404B69]">
+                        รายได้เฉลี่ย
+                      </h1> 
+                    </div>
+                    <div className="borderxborder-black ml-[26em] mt-[6em] leading-[45em] h-[52em]">  
+                      <h1 className="text-[48em] text-black font-bold">
+                        XXX,XXX บาท
+                      </h1> 
+                    </div>
                   </div> 
-                  <div className="borderxborder-black" style={{ backgroundColor: '#FFFFFF',marginLeft: '15px',width: '420px',borderRadius: '8px' }}>
-                      <div className="flex borderxborder-black items-center justify-center h-full" style={{ marginTop: '24px',fontSize: '52px',fontWeight: 'bold',lineHeight: '45px',height: '45px' }}>
-                          <div className="borderxborder-black" style={{ height: '45px',width: '60px' }}>
+                  <div className="borderxborder-black ml-[15em] w-[420em] bg-[#FFFFFF] rounded-[8px]">
+                      <div className="flex borderxborder-black items-center justify-center mt-[24em] leading-[45em] h-[45em] font-bold">
+                          <div className="borderxborder-black h-[45em] w-[60em]">
                               <Image
                                   src="/triangle-up-small.svg"
                                   alt="Triangle Up Small"
-                                  style={{ marginTop: '-9px',marginLeft: '-5px',width: '70px',position:'absolute' }}
-                                  width={100}
-                                  height={10}
+                                  className="mt-[-9em] ml-[calc(-5em] w-[70em]"
+                                  style={{ position:'absolute' }}
+                                  width={0}
+                                  height={0}
                               />
                           </div>
-                          <h1 className="text-black borderxborder-black" style={{color: '#000000'}}>
+                          <h1 className="text-[48em] text-black borderxborder-black">
                               XX%
                           </h1> 
                       </div>
-                      <div className="flex borderxborder-black items-center justify-center h-full" style={{ marginTop: '12px',fontSize: '35px',lineHeight: '30px',height: '30px' }}>
-                          <h1 className="text-black borderxborder-black" style={{color: '#404B69',}}>
+                      <div className="flex borderxborder-black items-center justify-center h-[30em] mt-[12em] leading-[30em]">
+                          <h1 className="text-[30em] borderxborder-black text-[#404B69]">
                                   ของรายได้
                           </h1> 
                       </div>
-                      <div className="flex borderxborder-black" style={{ marginTop: '20px' }}>
-                          <div className="borderxborder-black" style={{ width: '210px' }}>
-                              <h1 className="flex text-black borderxborder-black items-center justify-center h-full"  style={{ color: '#000000',height: '22px',fontSize: '20px' }}>
-                                  XXX,XXX บาท
-                              </h1>
-                              <h1 className="flex text-black borderxborder-black items-center justify-center h-full"  style={{ color: '#404B69',height: '29px',fontSize: '20px' }}>
-                                  เมื่อวาน
-                              </h1>
+                      <div className="flex borderxborder-black  mt-[20em]">
+                          <div className="borderxborder-black w-[210em]">
+                              <div className="borderxborder-black h-[22em] leading-[20em]">
+                                <h1 className="flex text-black borderxborder-black items-center justify-center text-[20em]">
+                                    XXX,XXX บาท
+                                </h1>
+                              </div>
+                              <div className="borderxborder-black h-[29em] leading-[27em]">
+                                <h1 className="flex text-[#404B69] borderxborder-black items-center justify-center text-[20em]">
+                                    เมื่อวาน
+                                </h1>
+                              </div>
                           </div>
-                          <div className="borderxborder-black" style={{ width: '210px' }}>
-                              <h1 className="flex text-black borderxborder-black items-center justify-center h-full"  style={{ color: '#000000',height: '22px',fontSize: '20px' }}>
-                                  XXX,XXX บาท
-                              </h1>
-                              <h1 className="flex text-black borderxborder-black items-center justify-center h-full"  style={{ color: '#404B69',height: '29px',fontSize: '20px' }}>
-                                  วันนี้
-                              </h1>
+                          <div className="borderxborder-black w-[210em]">
+                              <div className="borderxborder-black h-[22em] leading-[20em]">
+                                <h1 className="flex text-black borderxborder-black items-center justify-center text-[20em]">
+                                    XXX,XXX บาท
+                                </h1>
+                              </div>
+                              <div className="borderxborder-black h-[29em] leading-[27em]">
+                                <h1 className="flex text-[#404B69] borderxborder-black items-center justify-center text-[20em]">
+                                    วันนี้
+                                </h1>
+                              </div>
                           </div>
                       </div>
                   </div>
                 </div>    
-                <div className="borderxborder-black" style={{ backgroundColor: '#FFFFFF',marginTop: '13px',height: '330px' ,width: '857px',borderRadius: '8px' }}> 
-                  <h1 className="text-black borderxborder-black" style={{ color: '#404B69',marginLeft: '26px', marginTop: '5px',fontSize: '33px',lineHeight: '45px',height: '38px' }}>
+                <div className="flex borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
+                  <div className="borderxborder-black ml-[26em] mt-[5em] leading-[45em] h-[38em]">
+                    <h1 className="text-[#404B69] borderxborder-black text-[30em]">
                       รายได้
                     </h1> 
+                  </div>
                 </div>      
               </div>   
             </div>
         </div>
-      </div>
     </main>
   )
 }
