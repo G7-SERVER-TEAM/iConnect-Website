@@ -1,9 +1,15 @@
-import Image from 'next/image'
-import React  from 'react';
+'use client';
+import Image from 'next/image';
+import React from 'react';
+import { Chart as ChartJS, defaults } from "chart.js/auto";
+import { Bar, Doughnut, Line } from "react-chartjs-2";
+import MyBarChart from '@/components/BusinessOverview/Chart.jsx'
+
+
 
 export default function BusinessOverview() {
   return (
-    <main className="h-screen borderxborder-black text-[calc(1024px/100/17.665)] lg:text-[calc(1vw/17.0665)]">
+    <main className="h-screen borderxborder-black text-[calc(1024px/1536)] lg:text-[calc(100vw/1536)]">
         <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
           <div className="borderxborder-black mt-[50em] pt-[6em] pl-[47em] leading-[27em]">
             <h1 className="text-[30em] text-black borderxborder-black font-bold">
@@ -100,10 +106,14 @@ export default function BusinessOverview() {
                   </div>
                 </div>    
                 <div className="flex borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
+                <div className="borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
                   <div className="borderxborder-black ml-[26em] mt-[5em] leading-[45em] h-[38em]">
                     <h1 className="text-[#404B69] borderxborder-black text-[30em]">
                       รายได้
                     </h1> 
+                  </div>
+                  <div class="borderxborder-black w-[800em] h-[260em] mx-[auto] mt-[10em]">
+                    <MyBarChart/>
                   </div>
                 </div>      
               </div>   
