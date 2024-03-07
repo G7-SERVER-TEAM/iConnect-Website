@@ -105,7 +105,6 @@ export default function BusinessOverview() {
                       </div>
                   </div>
                 </div>    
-                <div className="flex borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
                 <div className="borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
                   <div className="borderxborder-black ml-[26em] mt-[5em] leading-[45em] h-[38em]">
                     <h1 className="text-[#404B69] borderxborder-black text-[30em]">
