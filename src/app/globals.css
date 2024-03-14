@@ -21,11 +21,11 @@ body {
 }
 
 .profile__btn {
-  @apply flex gap-3 p-2 w-[10rem] justify-center items-center text-white rounded-b-xl cursor-pointer;
+  @apply flex gap-3 p-2 justify-center items-center text-white rounded-b-xl cursor-pointer;
 }
 
 .profile__upward__btn {
-  @apply flex gap-1 p-1 w-[10rem] items-center text-white
+  @apply flex gap-1 xl:p-[0.4rem] p-2 items-center text-white
 }
 
 .role__btn {
