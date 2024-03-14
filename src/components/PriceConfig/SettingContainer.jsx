@@ -8,49 +8,32 @@ const SettingContainer = ({title}) => {
 
   const [settings, setSettings] = useState([
     {
-      start_price: "0 บาท",
-      rate_price: {
-        value: "20",
-        unit: "บาท",
-        time_unit: "ชั่วโมง",
-      },
-      time: {
-        unit: "ชั่วโมง",
-        range: "10:00:00 - 13:00:00",
-      }
-    },
-    {
-      start_price: "10 บาท",
-      rate_price: {
-        value: "22",
-        unit: "บาท",
-        time_unit: "ชั่วโมง",
-      },
-      time: {
-        unit: "ชั่วโมง",
-        range: "13:00:00 - 21:00:00",
-      }
+      start_hour: "0",
+      end_hour: "2",
+      price: "0",
     },
   ]);
 
   const addSettingCard = () => {
     
+    const prevData = settings[settings.length-1]
+
     const newSetting = {
-      start_price: "0 บาท",
-      rate_price: {
-        value: "20",
-        unit: "บาท",
-        time_unit: "ชั่วโมง",
-      },
-      time: {
-        unit: "ชั่วโมง",
-        range: "10:00:00 - 13:00:00",
-      }
+      start_hour: prevData.end_hour,
+      end_hour: parseInt(prevData.end_hour) + 1,
+      price: "0",
     };
 
     // Update settings array with the new setting
     setSettings([...settings, newSetting]);
 
+  }
+  const removeSettingCard = (itemIndex) => {
+    setSettings((prevSettings) => prevSettings.filter((_, index) => index !== itemIndex));
+  };
+
+  const doSubmit = () => {
+    // console.log('todo.. submit')
   }
 
   return (
@@ -63,31 +46,39 @@ const SettingContainer = ({title}) => {
         <div>2 การตั้งค่า</div>
       </div>
 
-      <div className="w-full max-w-[76rem] flex flex-row overflow-x-scroll gap-3">
+      <div className="w-full flex-col">
         { 
           settings.map((item, index) => {
             return (
               <ConfigCard
                 key={index}
-                start_price={item.start_price}
-                rate_price={item.rate_price}
-                time={item.time}
+                index={index}
+                start_hour={item.start_hour}
+                end_hour={item.end_hour}
+                price={item.price}
+                onRemove={removeSettingCard}
               />
             )
           })
         }
         <div 
           onClick={addSettingCard}
-          className="w-[20rem] flex flex-col justify-center items-center gap-4 py-3 px-[9rem] border rounded-3xl bg-white cursor-pointer hover:bg-slate-100/50"
+          className="w-full flex flex-col justify-center items-center gap-4 py-4 px-[9rem] border rounded-3xl bg-white cursor-pointer hover:bg-slate-100/50"
         >
           <div className="bg-gray-300 p-4 rounded-full">
-            <Icon icon="tabler:plus" width="4rem" height="4rem" style={{color: '#FFF'}} />
+            <Icon icon="tabler:plus" width="2rem" height="2rem" style={{color: '#FFF'}} />
           </div>
           <div className="whitespace-nowrap">เพิ่มการตั้งค่า</div>
         </div>
       </div>
 
       <div className="w-full flex flex-row justify-end gap-3">
+        <div
+          onClick={doSubmit}
+          className="text-center cursor-pointer bg-[#00818A] text-white px-10 py-1 rounded-full whitespace-nowrap"
+        >
+          บันทึก
+        </div>
         <a
           href="/price-config"
           className="text-center cursor-pointer bg-gray-300 text-black px-10 py-1 rounded-full whitespace-nowrap"
