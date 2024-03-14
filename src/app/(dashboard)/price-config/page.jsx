@@ -72,7 +72,7 @@ const PriceConfig = () => {
           <ResultContainer />
         </div>
 
-        <div className='w-full flex flex-row gap-4'>
+        <div className='w-full flex flex-col lg:flex-row gap-4'>
           <div className="w-full lg:w-1/2 flex flex-col bg-white rounded-xl shadow p-4 gap-4">
             <div className='text-xl'>ราคาก่อนหน้า</div>
             <Table items={priceBefore} />
