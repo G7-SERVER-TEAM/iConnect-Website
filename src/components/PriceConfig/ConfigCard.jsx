@@ -1,84 +1,67 @@
 "use client";
 
 import React, { useState } from "react";
+import { Icon } from '@iconify/react';
 
-const ConfigCard = ({ start_price, rate_price, time }) => {
+const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
 
-  const [startPrice, setStartPrice] = useState(start_price);
-  const [ratePriceValue, setRatePriceValue] = useState(rate_price.value);
-  const [ratePriceUnit, setRatePriceUnit] = useState(rate_price.unit);
-  const [ratePriceTimeUnit, setRatePriceTimeUnit] = useState(rate_price.time_unit);
-  const [timeUnit, setTimeUnit] = useState(time.unit);
-  const [timeRange, setTimeRange] = useState(time.range);
-  
-  const doSubmit = () => {
-    // console.log('todo.. submit')
-  }
+  const [startHour, setStartHour] = useState(start_hour);
+  const [endHour, setEndHour] = useState(end_hour);
+  const [priceValue, setPriceValue] = useState(price);
+
+  const handleRemove = () => {
+    onRemove(index);
+  };
 
   return (
-    <div className="w-[21rem] flex flex-col gap-2 p-3 border rounded-3xl bg-white">
+    <div className="relative w-full flex flex-col lg:flex-row justify-between items-center gap-3 lg:gap-0 border rounded-3xl bg-white my-3 px-2 lg:px-8 py-10">
+
+      <div className='w-full flex flex-row justify-center items-center gap-4 lg:gap-6 xl:gap-8'>
+        <div className="w-10 lg:w-min text-gray-600">ตั้งแต่</div>
+        <input 
+          type="number"
+          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full"
+          value={startHour}
+          onChange={(e) => {setStartHour(e.target.value);}}
+        />  
+        <div className="w-10 lg:w-min text-gray-600">ชั่วโมง</div>
+      </div>
+
+      <div className='w-full flex flex-row justify-center items-center gap-4 lg:gap-6 xl:gap-8'>
+        <div className="w-10 lg:w-min text-gray-600">ถึง</div>
+        <input 
+          type="number"
+          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full"
+          min={parseInt(startHour)+1}
+          value={endHour}
+          onChange={(e) => {setEndHour(e.target.value);}}
+        />  
+        <div className="w-10 lg:w-min text-gray-600">ชั่วโมง</div>
+      </div>
       
-      <div className='w-full flex flex-col gap-1'>
-        <div className="px-2 text-gray-600">ราคาเริ่มต้น</div>
+      <div className='w-full flex flex-row justify-center items-center gap-4 lg:gap-6 xl:gap-8'>
+        <div className="w-10 lg:w-min text-gray-600">ราคา</div>
         <input 
           type="text"
-          className="px-3 py-1 border border-gray-400 rounded-full"
-          value={startPrice}
-          onChange={(e) => {setStartPrice(e.target.value);}}
+          className="w-36 text-center px-3 py-1 border border-gray-400 rounded-full"
+          value={priceValue}
+          onChange={(e) => {setPriceValue(e.target.value);}}
         />  
+        <div className="w-10 lg:w-min text-gray-600">บาท</div>
       </div>
 
-      <div className='w-full flex flex-col gap-1'>
-        <div className="px-2 text-gray-600">อัตราราคาจอดรถ</div>
-        <div className="w-full flex flex-row justify-between items-center gap-2">
-          <input 
-            type="text"
-            className="w-[5rem] px-3 py-1 border border-gray-400 rounded-full"
-            value={ratePriceValue}
-            onChange={(e) => {setRatePriceValue(e.target.value)}}
-          />
-          <input 
-            type="text"
-            className="w-[5rem] px-3 py-1 border border-gray-400 rounded-full"
-            value={ratePriceUnit}
-            onChange={(e) => {setRatePriceUnit(e.target.value)}}
-          />
-          <div>ต่อ</div>
-          <input 
-            type="text"
-            className="w-[5rem] px-3 py-1 border border-gray-400 rounded-full"
-            value={ratePriceTimeUnit}
-            onChange={(e) => {setRatePriceTimeUnit(e.target.value)}}
-          />
-        </div>
-      </div>
-
-      <div className='w-full flex flex-col gap-1'>
-        <div className="px-2 text-gray-600">ช่วงเวลา</div>
-        <div className="w-full flex flex-row items-center gap-2">
-          <input 
-            type="text"
-            className="w-[5rem] px-3 py-1 border border-gray-400 rounded-full"
-            value={timeUnit}
-            onChange={(e) => {setTimeUnit(e.target.value)}}
-          />
-          <input 
-            type="text"
-            className="w-[13rem] px-3 py-1 border border-gray-400 rounded-full"
-            value={timeRange}
-            onChange={(e) => {setTimeRange(e.target.value)}}
-          />
-        </div>
-      </div>
-
-      <div className="w-full flex flex-row justify-end py-2">
-        <div
-          onClick={doSubmit}
-          className="text-center cursor-pointer bg-[#00818A] text-white px-10 py-1 rounded-full whitespace-nowrap"
+      { index > 0 && 
+        <div 
+          className="absolute top-2 right-2"
         >
-          บันทึก
+          <div 
+            onClick={handleRemove}
+            className="cursor-pointer bg-red-300 p-2 rounded-full"
+          >
+            <Icon icon="tabler:minus" width="1rem" height="1rem" style={{color: '#FFF'}} />
+          </div>
         </div>
-      </div>
+      }
 
     </div>
   )
