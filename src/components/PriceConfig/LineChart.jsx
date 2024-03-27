@@ -1,11 +1,13 @@
+"use client";
+
 import { useEffect } from "react"
-import { Chart } from "chart.js";
+import { Chart } from "chart.js/auto";
 
 function LineChart({labels, data}) {
 
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, {
+    var myChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: labels,
@@ -36,7 +38,12 @@ function LineChart({labels, data}) {
         }
       },
     });
-  }, [])
+    
+    return () => {
+      myChart.destroy();
+    };
+
+  }, [labels, data])
   
   return (
     <div className="w-full flex flex-col">

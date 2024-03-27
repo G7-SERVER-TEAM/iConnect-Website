@@ -59,7 +59,10 @@ const ManageAccountTable = ({items, actionRemove}) => {
 
       <div className="w-full flex lg:hidden flex-col divide-y gap-4 px-4 pb-10 ">
         {items.map((item) => (
-          <div className="flex flex-col sm:flex-row justify-between items-center first:pt-0 pt-4 gap-4 ">
+          <div 
+            key={item.key} 
+            className="flex flex-col sm:flex-row justify-between items-center first:pt-0 pt-4 gap-4 "
+          >
             <div className="w-full flex flex-col text-sm">
               <div className="flex flex-col sm:flex-row">
                 <div className="w-32 font-semibold">รายการที่</div>
