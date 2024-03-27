@@ -4,10 +4,9 @@ import React from 'react';
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import MyBarChart from '@/components/BusinessOverview/Chart.jsx'
+import isAuth from '@/components/isAuth'
 
-
-
-export default function BusinessOverview() {
+function BusinessOverview() {
   return (
     <main className="h-screen borderxborder-black text-[calc(1024px/1536)] lg:text-[calc(100vw/1536)]">
         <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
@@ -111,7 +110,7 @@ export default function BusinessOverview() {
                       รายได้
                     </h1> 
                   </div>
-                  <div class="borderxborder-black w-[800em] h-[260em] mx-[auto] mt-[10em]">
+                  <div className="borderxborder-black w-[800em] h-[260em] mx-[auto] mt-[10em]">
                     <MyBarChart/>
                   </div>
                 </div>      
@@ -121,3 +120,6 @@ export default function BusinessOverview() {
     </main>
   )
 }
+
+
+export default isAuth(BusinessOverview)

@@ -5,6 +5,7 @@ import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/Profile/Form'
+import isAuth from '@/components/isAuth'
 
 const EditProfile = () => {
   
@@ -41,4 +42,4 @@ const EditProfile = () => {
   )
 }
 
-export default EditProfile;
+export default isAuth(EditProfile);

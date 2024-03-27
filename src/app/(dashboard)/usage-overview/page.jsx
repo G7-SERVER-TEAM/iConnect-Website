@@ -2,8 +2,8 @@
 import Searchbar from '@/components/Searchbar'
 import BarChart from '@/components/UsageOverview/BarChart'
 import TranscationTable from '@/components/UsageOverview/TranscationTable'
+import isAuth from '@/components/isAuth'
 import React from 'react'
-import { RiArrowDownSFill } from 'react-icons/ri'
 
 const UsageOverview = () => {
   return (
@@ -36,31 +36,12 @@ const UsageOverview = () => {
           placeholder={'Search for transaction...'}
         />
       </div>
-
+      
       <div className='grid grid-cols-4 p-4'>
-
-        {/* <table className='col-span-4'>
-          <tr>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>รายการที่</th>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>หมายเลขทะเบียน</th>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>เวลาเข้า</th>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>เวลาออก</th>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>เวลาที่จอด</th>
-            <th className='font-medium text-[#404B69] lg:text-lg text-sm'>ค่าบริการ</th>
-          </tr>
-          <tr className='text-center'>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] rounded-l-full lg:text-lg text-sm'>00000001</td>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] lg:text-lg text-sm'>1กก1111</td>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] lg:text-lg text-sm'>21-10-2023 11:00:00</td>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] lg:text-lg text-sm'>21-10-2023  13:30:00</td>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] lg:text-lg text-sm'>2 ชั่วโมง 30 นาที</td>
-            <td className='font-normal text-[#323232] bg-white h-[2rem] rounded-r-full lg:text-lg text-sm'>70 บาท</td>
-          </tr>
-        </table> */}
         <TranscationTable />
       </div>
     </main>
   )
 }
 
-export default UsageOverview
+export default isAuth(UsageOverview)
