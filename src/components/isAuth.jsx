@@ -4,8 +4,8 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 
 
 export default function isAuth(Component) {
-  const role2Paths = ['/usage-overview', '/price-config']
-  const role3Paths = ['/business-overview', 'customer-analytics', 'user-management']
+  const role2Paths = ['/usage-overview', '/price-config', '/profile']
+  const role3Paths = ['/business-overview', '/customer-analytics', '/user-management', '/user-management/[id]', '/user-management/add']
   
 
   return function IsAuth(props) {
@@ -28,7 +28,7 @@ export default function isAuth(Component) {
           router.replace('/')
         }
       }
-    }, [pathname]);
+    }, [pathname, router]);
 
     return <Component {...props} />;
   };
