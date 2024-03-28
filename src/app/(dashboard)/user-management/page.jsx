@@ -4,6 +4,8 @@ import Container from "@/components/Container";
 import PageTitle from "@/components/PageTitle";
 import Table from "@/components/ManageAccount/Table";
 import { useEffect, useState } from "react";
+import isAuth from '@/components/isAuth'
+
 
 const UserManagement = () => {
   const doRemoveAccount = (id) => {
@@ -111,4 +113,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default isAuth(UserManagement);

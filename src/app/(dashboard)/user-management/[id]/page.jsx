@@ -1,11 +1,11 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Container from "@/components/Container";
 import PageTitle from "@/components/PageTitle";
 import ProfileImage from "@/components/ManageAccount/ProfileImage";
 import Form from "@/components/ManageAccount/Form";
 import { redirect, useRouter } from "next/navigation";
+import isAuth from '@/components/isAuth'
 
 const UserManagementEdit = ({ params }) => {
   const router = useRouter();
@@ -104,4 +104,4 @@ const UserManagementEdit = ({ params }) => {
   );
 };
 
-export default UserManagementEdit;
+export default isAuth(UserManagementEdit);

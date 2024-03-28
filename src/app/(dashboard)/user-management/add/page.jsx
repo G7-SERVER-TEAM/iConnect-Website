@@ -1,8 +1,10 @@
+"use client"
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
 import UserManagement from '../page'
+import isAuth from '@/components/isAuth'
 
 const UserManagementAdd = () => {
   
@@ -32,4 +34,4 @@ const UserManagementAdd = () => {
   )
 }
 
-export default UserManagementAdd;
+export default isAuth(UserManagementAdd);

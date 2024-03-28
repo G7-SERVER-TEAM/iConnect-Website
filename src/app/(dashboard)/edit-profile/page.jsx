@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Container from "@/components/Container";
-import PageTitle from "@/components/PageTitle";
-import ProfileImage from "@/components/ManageAccount/ProfileImage";
-import Form from "@/components/Profile/Form";
+import { useState } from 'react'
+import Container from '@/components/Container'
+import PageTitle from '@/components/PageTitle'
+import ProfileImage from '@/components/ManageAccount/ProfileImage'
+import Form from '@/components/Profile/Form'
+import isAuth from '@/components/isAuth'
 
 const EditProfile = () => {
   const access_token =
@@ -68,5 +69,4 @@ const EditProfile = () => {
     </Container>
   );
 };
-
-export default EditProfile;
+export default isAuth(EditProfile);

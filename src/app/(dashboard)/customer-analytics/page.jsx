@@ -3,6 +3,7 @@ import React from 'react'
 import ReactDatePicker from '@/components/ReactDatePicker'
 import LineChart from '@/components/CustomerAnalytics/LineChart'
 import PriceLineChart from '@/components/CustomerAnalytics/PriceLineChart'
+import isAuth from '@/components/isAuth'
 
 const CustomerAnalytics = () => {
   return (
@@ -76,4 +77,4 @@ const CustomerAnalytics = () => {
   )
 }
 
-export default CustomerAnalytics
+export default isAuth(CustomerAnalytics)

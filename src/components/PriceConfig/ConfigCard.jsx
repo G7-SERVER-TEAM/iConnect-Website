@@ -20,9 +20,10 @@ const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
         <div className="w-10 lg:w-min text-gray-600">ตั้งแต่</div>
         <input 
           type="number"
-          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full"
+          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full focus:outline-none"
           value={startHour}
           onChange={(e) => {setStartHour(e.target.value);}}
+          readOnly
         />  
         <div className="w-10 lg:w-min text-gray-600">ชั่วโมง</div>
       </div>

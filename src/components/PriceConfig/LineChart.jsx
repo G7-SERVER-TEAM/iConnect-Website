@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import Chart from "chart.js/auto";
 
@@ -36,13 +37,10 @@ function LineChart({ labels, data }) {
         }
       },
     });
-    
-    // Clean up the chart when the component unmounts
     return () => {
       chart.destroy();
     };
   }, [labels, data]);
-
   return (
     <div className="w-full flex flex-col">
       <div className='w-full rounded-xl'>

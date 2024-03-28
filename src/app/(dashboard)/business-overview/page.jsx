@@ -110,6 +110,9 @@ export default function BusinessOverview() {
     fetchPricePerDay();
   }, [month, access_token]);
 
+import isAuth from '@/components/isAuth'
+
+function BusinessOverview() {
   return (
     <main className="h-screen borderxborder-black text-[calc(1024px/1536)] lg:text-[calc(100vw/1536)]">
       <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
@@ -229,6 +232,15 @@ export default function BusinessOverview() {
                         วันนี้
                       </h1>
                     </div>
+                </div>    
+                <div className="borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
+                  <div className="borderxborder-black ml-[26em] mt-[5em] leading-[45em] h-[38em]">
+                    <h1 className="text-[#404B69] borderxborder-black text-[30em]">
+                      รายได้
+                    </h1> 
+                  </div>
+                  <div className="borderxborder-black w-[800em] h-[260em] mx-[auto] mt-[10em]">
+                    <MyBarChart/>
                   </div>
                 </div>
               </div>
@@ -253,3 +265,8 @@ export default function BusinessOverview() {
     </main>
   );
 }
+  )
+}
+
+
+export default isAuth(BusinessOverview)
