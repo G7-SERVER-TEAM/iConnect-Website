@@ -1,0 +1,17 @@
+version: '1.1'
+services:
+  iconnect_website:
+    build:
+      context: .
+      dockerfile: "./Dockerfile"
+    command: ["npm", "run", "dev"]
+    container_name: iconnect_website
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - iconnect_website_network
+
+networks:
+  iconnect_website_network:
