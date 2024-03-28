@@ -8,27 +8,31 @@ import isAuth from '@/components/isAuth'
 
 const priceBefore = [
   {
-    time: "10:00:00 - 13:00:00",
-    start_price: "0 บาท",
-    price_rate: "10 บาท",
+    time: "0-2 ชั่วโมง",
+    price_rate: "0 บาท",
   },
   {
-    time: "10:00:00 - 13:00:00",
-    start_price: "0 บาท",
-    price_rate: "10 บาท",
+    time: "2-4 ชั่วโมง",
+    price_rate: "20 บาท",
+  },
+  {
+    time: "4-6 ชั่วโมง",
+    price_rate: "40 บาท",
   }
 ]
 
 const priceAfter = [
   {
-    time: "10:00:00 - 13:00:00",
-    start_price: "0 บาท",
-    price_rate: "10 บาท",
+    time: "0-2 ชั่วโมง",
+    price_rate: "0 บาท",
   },
   {
-    time: "10:00:00 - 13:00:00",
-    start_price: "0 บาท",
-    price_rate: "10 บาท",
+    time: "2-4 ชั่วโมง",
+    price_rate: "20 บาท",
+  },
+  {
+    time: "4-6 ชั่วโมง",
+    price_rate: "40 บาท",
   }
 ]
 
