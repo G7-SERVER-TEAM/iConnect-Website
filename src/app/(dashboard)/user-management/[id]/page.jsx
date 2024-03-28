@@ -9,11 +9,10 @@ import isAuth from '@/components/isAuth'
 
 const UserManagementEdit = ({ params }) => {
   const router = useRouter();
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
+  const access_token = localStorage.getItem('token');
 
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://10.4.13.53:8081/account/operation`;
+    const ICONNECT_API = `http://10.4.13.47:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
