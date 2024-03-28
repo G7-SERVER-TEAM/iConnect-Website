@@ -3,6 +3,7 @@
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import Table from '@/components/ManageAccount/Table'
+import isAuth from '@/components/isAuth'
 
 const users = [
   {
@@ -101,4 +102,4 @@ const UserManagement = () => {
   )
 }
 
-export default UserManagement;
+export default isAuth(UserManagement);

@@ -77,7 +77,7 @@ export default function TranscationTable() {
       </TableHeader>
       <TableBody>
         {rows.map((row) =>
-          <TableRow key={row.key} className="font-normal text-[#323232] bg-white h-[2rem] rounded-full lg:text-lg text-sm">
+          <TableRow key={row.key} className="font-normal text-[#323232] bg-white h-[2rem] rounded-full lg:text-base text-sm">
             {(columnKey) => <TableCell>{getKeyValue(row, columnKey)}</TableCell>}
           </TableRow>
         )}

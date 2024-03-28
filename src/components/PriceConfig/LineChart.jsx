@@ -1,13 +1,12 @@
 "use client";
+import { useEffect } from "react";
+import Chart from "chart.js/auto";
 
-import { useEffect } from "react"
-import { Chart } from "chart.js/auto";
-
-function LineChart({labels, data}) {
+function LineChart({ labels, data }) {
 
   useEffect(() => {
     var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    const chart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: labels,
@@ -19,40 +18,36 @@ function LineChart({labels, data}) {
           position: 'bottom',
         },
         scales: {
-          xAxes: [{
-            gridLines: {
+          x: {
+            grid: {
               display: false,
               color: "transparent",
             },
             position: 'top',
-          }],
-          yAxes: [{
-            gridLines: {
+          },
+          y: {
+            grid: {
               display: false,
               color: "transparent",
             },
             ticks: {
-              fontColor: 'transparent'
+              color: 'transparent'
             }   
-          }]
+          }
         }
       },
     });
-    
     return () => {
-      myChart.destroy();
+      chart.destroy();
     };
-
-  }, [labels, data])
-  
+  }, [labels, data]);
   return (
     <div className="w-full flex flex-col">
       <div className='w-full rounded-xl'>
         <canvas id='myChart'></canvas>
       </div>
     </div>
-  )
-  
+  );
 }
 
 export default LineChart;

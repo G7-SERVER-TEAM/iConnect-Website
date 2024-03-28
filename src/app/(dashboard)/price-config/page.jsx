@@ -1,8 +1,10 @@
+"use client"
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ReactDatePicker from '@/components/ReactDatePicker'
 import ResultContainer from '@/components/PriceConfig/ResultContainer'
 import Table from '@/components/PriceConfig/Table'
+import isAuth from '@/components/isAuth'
 
 const priceBefore = [
   {
@@ -92,4 +94,4 @@ const PriceConfig = () => {
   )
 }
 
-export default PriceConfig;
+export default isAuth(PriceConfig);

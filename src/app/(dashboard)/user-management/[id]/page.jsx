@@ -5,6 +5,7 @@ import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
+import isAuth from '@/components/isAuth'
 
 const UserManagementEdit = () => {
   
@@ -44,4 +45,4 @@ const UserManagementEdit = () => {
   )
 }
 
-export default UserManagementEdit;
+export default isAuth(UserManagementEdit);

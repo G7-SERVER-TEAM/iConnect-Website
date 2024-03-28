@@ -1,8 +1,10 @@
+"use client"
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ReactDatePicker from '@/components/ReactDatePicker'
 import SettingContainer from '@/components/PriceConfig/SettingContainer'
 import Table from '@/components/PriceConfig/Table'
+import isAuth from '@/components/isAuth'
 
 const PriceConfigEdit = ({location="Future Park Rangsit"}) => {
 
@@ -26,4 +28,4 @@ const PriceConfigEdit = ({location="Future Park Rangsit"}) => {
   )
 }
 
-export default PriceConfigEdit;
+export default isAuth(PriceConfigEdit);
