@@ -17,7 +17,7 @@ const EditProfile = () => {
   const [lastname, setLastname] = useState();
 
   const userProfile = async (access_token, uid) => {
-    const ICONNECT_API = `http://10.4.13.47:8081/account/myAccount/${uid}`;
+    const ICONNECT_API = `http://10.4.13.57:8081/account/myAccount/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

@@ -27,7 +27,7 @@ export default function Sidebar({ children }) {
   useEffect(() => {setIsClicked(false)} , [dynamicRoute])
 
   const getUserData = async (uid, access_token) => {
-    const ICONNECT_API = `http://localhost:8080/user/id/${uid}`;
+    const ICONNECT_API = `http://10.4.13.57:8080/user/id/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

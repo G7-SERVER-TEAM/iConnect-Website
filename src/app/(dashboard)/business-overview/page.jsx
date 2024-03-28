@@ -18,7 +18,7 @@ const BusinessOverview = () => {
   const access_token = localStorage.getItem('token');
 
   const handleGetTotalPrice = async (month, access_token) => {
-    const ICONNECT_API = `http://10.4.13.47:8082/payment/total/income/${month}`;
+    const ICONNECT_API = `http://10.4.13.57:8082/payment/total/income/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -39,7 +39,7 @@ const BusinessOverview = () => {
   };
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://10.4.13.47:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://10.4.13.57:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
