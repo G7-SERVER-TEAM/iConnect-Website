@@ -12,7 +12,7 @@ const UserManagementEdit = ({ params }) => {
   const access_token = localStorage.getItem('token');
 
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://10.4.13.47:8081/account/operation`;
+    const ICONNECT_API = `http://10.4.13.57:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
