@@ -1,8 +1,10 @@
+"use client"
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
 import UserManagement from '../page'
+import isAuth from '@/components/isAuth'
 
 const UserManagementAdd = () => {
   
@@ -17,11 +19,11 @@ const UserManagementAdd = () => {
           <div className="text-xl text-gray-600">เพิ่มสมาชิก</div>
         </div>
 
-        <div className='w-full flex flex-row gap-8'>
-          <div className='w-1/4'>
+        <div className='w-full flex flex-col xl:flex-row gap-8'>
+          <div className='w-full xl:w-1/4'>
             <ProfileImage />
           </div>
-          <div className='w-3/4'>
+          <div className='w-full xl:w-3/4'>
             <Form />
           </div>
         </div>
@@ -30,4 +32,4 @@ const UserManagementAdd = () => {
   )
 }
 
-export default UserManagementAdd;
+export default isAuth(UserManagementAdd);

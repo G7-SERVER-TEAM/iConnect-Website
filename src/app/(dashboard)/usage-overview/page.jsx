@@ -1,51 +1,47 @@
 'use client'
 import Searchbar from '@/components/Searchbar'
+import BarChart from '@/components/UsageOverview/BarChart'
+import TranscationTable from '@/components/UsageOverview/TranscationTable'
+import isAuth from '@/components/isAuth'
 import React from 'react'
-import { RiArrowDownSFill } from 'react-icons/ri'
 
 const UsageOverview = () => {
   return (
-    <div className='flex flex-col min-h-screen gap-6 items-center'>
-      <div className='flex w-[64rem] justify-start'>
-        <p className='text-4xl font-bold mt-10'>ภาพรวม</p>
-      </div>
-      <div className='flex flex-col bg-white w-[64rem] h-[32rem] rounded-lg p-8'>
-        <div className='flex flex-row justify-between'>
-          <div>
-            <p className='text-[#A7A7A7]'>จำนวนผู้เข้าใช้บริการพื้นที่จอดรถทั้งหมด</p>
-            <p className='text-2xl font-bold'>5,555 คน</p>
+    <main className='min-h-screen 2xl:px-[7vw] xl:px-[5vw] lg:px-[2vw]'>
+      <div className='grid xl:grid-col-4 gap-6 p-4'>
+
+        <div className='col-span-4 '>
+          <p className='text-4xl font-bold mt-10'>ภาพรวม</p>
+        </div>
+
+        <div className='col-span-4 bg-white rounded-lg p-8 grid grid-cols-1'>
+          <div className='flex flex-row justify-between'>
+            <div>
+              <p className='text-[#A7A7A7]'>จำนวนผู้เข้าใช้บริการพื้นที่จอดรถทั้งหมด</p>
+              <p className='text-2xl font-bold'>5,555 คน</p>
+            </div>
+            <div className=''>
+              <select name="pick-time" id="pick-time" className='bg-[#EBEBEB] text-[#404B69] font-light rounded-full text-center'>
+                <option value="ปีนี้">ปีนี้</option>
+                <option value="ปีที่แล้ว">ปีที่แล้ว</option>
+              </select>
+            </div>
           </div>
-          <button className='flex bg-[#EBEBEB] rounded-full h-8 p-1 text-[#404B69] items-center justify-center'>
-            <p>This year</p>
-            <RiArrowDownSFill size={20}/>
-          </button>
+          <BarChart className="col-span-1"/>
         </div>
       </div>
-      <div className='flex w-[64rem] justify-end'>
+
+      <div className='flex justify-end p-4'>
         <Searchbar 
           placeholder={'Search for transaction...'}
         />
       </div>
-      <table className='w-[64rem]'>
-        <tr>
-          <th className='font-medium text-[#404B69] text-lg'>รายการที่</th>
-          <th className='font-medium text-[#404B69] text-lg'>หมายเลขทะเบียน</th>
-          <th className='font-medium text-[#404B69] text-lg'>เวลาเข้า</th>
-          <th className='font-medium text-[#404B69] text-lg'>เวลาออก</th>
-          <th className='font-medium text-[#404B69] text-lg'>เวลาที่จอด</th>
-          <th className='font-medium text-[#404B69] text-lg'>ค่าบริการ</th>
-        </tr>
-        <tr className='text-center'>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] rounded-l-full'>00000001</td>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] '>1กก1111</td>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] '>21-10-2023 11:00:00</td>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] '>21-10-2023  13:30:00</td>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] '>2 ชั่วโมง 30 นาที</td>
-          <td className='font-normal text-[#323232] bg-white h-[2rem] rounded-r-full'>70 บาท</td>
-        </tr>
-      </table>
-    </div>
+      
+      <div className='grid grid-cols-4 p-4'>
+        <TranscationTable />
+      </div>
+    </main>
   )
 }
 
-export default UsageOverview
+export default isAuth(UsageOverview)

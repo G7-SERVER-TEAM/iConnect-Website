@@ -1,6 +1,9 @@
+"use client";
+
 import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import Table from '@/components/ManageAccount/Table'
+import isAuth from '@/components/isAuth'
 
 const users = [
   {
@@ -49,6 +52,12 @@ const users = [
 
 
 const UserManagement = () => {
+
+  const doRemoveAccount = (id) => {
+    console.log(id)
+    // setUsers((prevUsers) => prevUsers.filter((_, index) => index !== itemIndex));
+  }
+
   return (
     <Container>
       <div className='w-full flex flex-col items-start gap-4 pt-16'>
@@ -57,7 +66,7 @@ const UserManagement = () => {
           จัดการสมาชิก
         </PageTitle>
 
-        <div className='w-full flex flex-row justify-end items-center gap-3'>
+        <div className='w-full flex flex-col sm:flex-row justify-end items-center gap-3'>
           <div className='w-full'>
             <input 
               placeholder='Search for account...'
@@ -83,6 +92,7 @@ const UserManagement = () => {
     
           <Table 
             items={users}
+            actionRemove={doRemoveAccount}
           />
 
         </div>
@@ -92,4 +102,4 @@ const UserManagement = () => {
   )
 }
 
-export default UserManagement;
+export default isAuth(UserManagement);

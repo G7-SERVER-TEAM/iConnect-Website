@@ -5,6 +5,7 @@ import Container from '@/components/Container'
 import PageTitle from '@/components/PageTitle'
 import ProfileImage from '@/components/ManageAccount/ProfileImage'
 import Form from '@/components/ManageAccount/Form'
+import isAuth from '@/components/isAuth'
 
 const UserManagementEdit = () => {
   
@@ -25,11 +26,11 @@ const UserManagementEdit = () => {
           <div className="text-xl text-gray-600">แก้ไขข้อมูลสมาชิก</div>
         </div>
 
-        <div className='w-full flex flex-row gap-8'>
-          <div className='w-1/4'>
+        <div className='w-full flex flex-col xl:flex-row gap-8'>
+          <div className='w-full xl:w-1/4'>
             <ProfileImage />
           </div>
-          <div className='w-3/4'>
+          <div className='w-full xl:w-3/4'>
             <Form 
               user_id={userId}
               username={username}
@@ -44,4 +45,4 @@ const UserManagementEdit = () => {
   )
 }
 
-export default UserManagementEdit;
+export default isAuth(UserManagementEdit);
