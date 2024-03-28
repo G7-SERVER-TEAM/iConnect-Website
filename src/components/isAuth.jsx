@@ -19,7 +19,7 @@ export default function isAuth(Component) {
         console.log("you have no token");
         router.replace('/')
       } else {
-        if (role_id == 3 &&  role3Paths.includes(pathname)) {
+        if (role_id == 3 && role3Paths.includes(pathname) || !isNaN(pathname.charAt(pathname.length - 1))) {
           router.replace(pathname)
         } else if (role_id == 2 &&  role2Paths.includes(pathname)) {
           router.replace(pathname)
