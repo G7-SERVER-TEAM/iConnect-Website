@@ -3,11 +3,19 @@
 import React, { useState } from "react";
 import { Icon } from '@iconify/react';
 
-const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
+const ConfigCard = ({ start_hour, end_hour, price, index, onRemove, onChangeValue, onEndPriceValueUpdate }) => {
 
   const [startHour, setStartHour] = useState(start_hour);
   const [endHour, setEndHour] = useState(end_hour);
   const [priceValue, setPriceValue] = useState(price);
+
+  const handleChangeEndValue = (newValue) => {
+    onChangeValue(index, newValue);
+  }
+
+  const handleEndPriceValue = (newValue) => {
+    onEndPriceValueUpdate(index, newValue);
+  }
 
   const handleRemove = () => {
     onRemove(index);
@@ -20,10 +28,11 @@ const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
         <div className="w-10 lg:w-min text-gray-600">ตั้งแต่</div>
         <input 
           type="number"
-          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full focus:outline-none"
+          className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full focus:outline-none disabled:bg-gray-300"
           value={startHour}
           onChange={(e) => {setStartHour(e.target.value);}}
           readOnly
+          disabled
         />  
         <div className="w-10 lg:w-min text-gray-600">ชั่วโมง</div>
       </div>
@@ -35,7 +44,10 @@ const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
           className="w-36 lg:w-24 text-center px-3 py-1 border border-gray-400 rounded-full"
           min={parseInt(startHour)+1}
           value={endHour}
-          onChange={(e) => {setEndHour(e.target.value);}}
+          onChange={(e) => {
+            setEndHour(e.target.value);
+            handleChangeEndValue(e.target.value);
+          }}
         />  
         <div className="w-10 lg:w-min text-gray-600">ชั่วโมง</div>
       </div>
@@ -46,7 +58,10 @@ const ConfigCard = ({ start_hour, end_hour, price, index, onRemove }) => {
           type="text"
           className="w-36 text-center px-3 py-1 border border-gray-400 rounded-full"
           value={priceValue}
-          onChange={(e) => {setPriceValue(e.target.value);}}
+          onChange={(e) => {
+            setPriceValue(e.target.value);
+            handleEndPriceValue(e.target.value);
+          }}
         />  
         <div className="w-10 lg:w-min text-gray-600">บาท</div>
       </div>

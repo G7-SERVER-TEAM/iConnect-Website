@@ -9,7 +9,7 @@ import isAuth from "@/components/isAuth";
 
 const EditProfile = () => {
   const access_token = localStorage.getItem("token");
-  const uid = 4;
+  const uid = localStorage.getItem('uid');
 
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState();
@@ -17,7 +17,7 @@ const EditProfile = () => {
   const [lastname, setLastname] = useState();
 
   const userProfile = async (access_token, uid) => {
-    const ICONNECT_API = `http://10.4.13.57:8081/account/myAccount/${uid}`;
+    const ICONNECT_API = `http://192.168.1.5:8081/account/myAccount/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

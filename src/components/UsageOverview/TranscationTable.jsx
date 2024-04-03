@@ -75,7 +75,7 @@ export default function TransactionTable() {
   const getTimDescription = (time) => {
     return {
       year: time.getFullYear(),
-      month: time.getMonth() < 10 ? `0${time.getMonth()}` : time.getMonth(),
+      month: time.getMonth() < 10 ? `0${time.getMonth() + 1}` : time.getMonth() + 1,
       day: time.getDate() < 10 ? `0${time.getDate()}` : time.getDate(),
       hour: time.getHours() < 10 ? `0${time.getHours()}` : time.getHours(),
       minute:
@@ -99,7 +99,7 @@ export default function TransactionTable() {
   const [transactions, setTransaction] = useState([]);
 
   const loadTotalCompleteTransaction = async (access_token) => {
-    const ICONNECT_API = `http://10.4.13.57:8082/transaction/allcomplete`;
+    const ICONNECT_API = `http://192.168.1.5:8082/transaction/allcomplete`;
     try {
       const information = {
         status: "FINISH",

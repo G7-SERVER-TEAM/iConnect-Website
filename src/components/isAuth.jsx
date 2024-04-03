@@ -4,7 +4,7 @@ import { redirect, usePathname, useRouter } from "next/navigation";
 
 
 export default function isAuth(Component) {
-  const role2Paths = ['/usage-overview', '/price-config', '/edit-profile']
+  const role2Paths = ['/usage-overview', '/price-config', '/edit-profile', '/price-config/edit']
   const role3Paths = ['/business-overview', '/customer-analytics', '/user-management', '/user-management/[id]', '/user-management/add', '/edit-profile']
   
 
