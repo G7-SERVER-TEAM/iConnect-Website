@@ -28,7 +28,7 @@ const ManageAccountForm = ({
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
 
   const signUp = async (access_token, information) => {
-    const ICONNECT_API = `http://10.4.13.57:8081/auth/username/sign-up`;
+    const ICONNECT_API = `http://192.168.1.5:8081/auth/username/sign-up`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
@@ -63,7 +63,7 @@ const ManageAccountForm = ({
   };
 
   const userProfile = async (access_token, information) => {
-    const ICONNECT_API = `http://10.4.13.57:8080/user/profile/create`;
+    const ICONNECT_API = `http://192.168.1.5:8080/user/profile/create`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",

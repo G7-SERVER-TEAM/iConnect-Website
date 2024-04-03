@@ -1,6 +1,6 @@
 
 export async function login(user) {
-    const ICONNECT_API = "http://10.4.13.57:8081/auth/username/login";
+    const ICONNECT_API = "http://192.168.1.5:8081/auth/username/login";
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
@@ -15,8 +15,7 @@ export async function login(user) {
         localStorage.setItem("token", account.access_token)
         localStorage.setItem("uid", account.uid)
         localStorage.setItem("role_id", account.role_id)
-
-        console.log(account)
+        localStorage.setItem("area_id", account.area);
         return true
       } 
     } catch (err) {
