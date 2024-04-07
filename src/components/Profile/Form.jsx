@@ -12,6 +12,7 @@ const ProfileForm = ({
   lastname = "",
 }) => {
   const router = useRouter();
+  const access_token = localStorage.getItem('token');
   const [uid, setUid] = useState();
   const [userName, setUserName] = useState();
   const [name, setName] = useState();
@@ -19,8 +20,65 @@ const ProfileForm = ({
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
 
-  const doSubmit = () => {
-    // console.log('todo.. submit')
+  const updateUserProfile = async (access_token, information, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/update/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(information),
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const updateAccountPassword = async (access_token, information, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8081/account/update/password/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(information),
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const editProfile = () => {
+    const userInformation = {
+      name: name,
+      surname: surname,
+    };
+    const accountInformation = {
+      username: userName,
+      password: password,
+      confirm_password: confirmPassword,
+    };
+    updateUserProfile(access_token, userInformation, user_id).then(() => {
+      updateAccountPassword(access_token, accountInformation, user_id).then(() => {
+        router.replace("/business-overview");
+      })
+    })
   };
 
   return (
@@ -70,7 +128,7 @@ const ProfileForm = ({
 
       <div className="w-full flex flex-row justify-end gap-3 pt-10">
         <div
-          onClick={doSubmit}
+          onClick={editProfile}
           className="text-center cursor-pointer bg-[#00818A] text-white px-10 py-1 rounded-full whitespace-nowrap"
         >
           บันทึก

@@ -11,7 +11,7 @@ const UsageOverview = () => {
 
 
   const loadTotalCustomer = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/transaction/allUser`;
+    const ICONNECT_API = `http://192.168.1.37:8082/transaction/allUser`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

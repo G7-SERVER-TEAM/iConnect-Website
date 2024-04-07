@@ -16,13 +16,14 @@ const ReactDatePicker = ({ date = new Date(), onChangeValue }) => {
   return (
     <DatePicker
       locale="th"
+      disabled
       dateFormat="dd/MM/yyyy"
       selected={startDate}
       onChange={(date) => {
         setStartDate(date);
         handleOnChangeValue(date);
       }}
-      className="w-full px-3 outline-none border border-gray-400 rounded-full text-center"
+      className="w-full px-3 outline-none border border-gray-400 rounded-full text-center disabled:bg-gray-200"
     />
   );
 };

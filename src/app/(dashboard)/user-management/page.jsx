@@ -9,16 +9,66 @@ import isAuth from '@/components/isAuth'
 
 const UserManagement = () => {
   const doRemoveAccount = (id) => {
-    console.log(id);
-    // setUsers((prevUsers) => prevUsers.filter((_, index) => index !== itemIndex));
+    const target = operationTeam[id - 1];
+    const targetIndex = operationTeam.findIndex(item => item.key === id)
+    console.log(target);
+    deleteOperationTeamAccount(access_token, target.account_id);
+    deleteOperationTeamProfile(access_token, target.uid);
+    setOperationTeam(prevTeam => {
+      const newTeam = [...prevTeam];
+      newTeam.splice(targetIndex, 1);
+      return newTeam;
+    });
   };
 
   const [operationTeam, setOperationTeam] = useState({});
 
   const access_token = localStorage.getItem('token');
 
+  const deleteOperationTeamAccount = async (access_token, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/delete/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  }; 
+
+  const deleteOperationTeamProfile = async (access_token, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/delete/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  }; 
+
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8081/account/operation`;
+    const ICONNECT_API = `http://192.168.1.37:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

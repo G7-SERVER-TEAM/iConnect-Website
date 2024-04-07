@@ -12,7 +12,7 @@ const UserManagementEdit = ({ params }) => {
   const access_token = localStorage.getItem('token');
 
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8081/account/operation`;
+    const ICONNECT_API = `http://192.168.1.37:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -60,6 +60,8 @@ const UserManagementEdit = ({ params }) => {
             setLastname(profile.surname);
             setUsername(profile.username);
             setLocation(profile.area_name);
+            setRole(profile.role_id);
+            setUserId(profile.uid);
           }
         });
       } catch (err) {
@@ -74,6 +76,7 @@ const UserManagementEdit = ({ params }) => {
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
   const [location, setLocation] = useState();
+  const [role, setRole] = useState();
 
   return (
     <Container>
@@ -95,6 +98,8 @@ const UserManagementEdit = ({ params }) => {
               lastname={lastname}
               location={location}
               id={params.id}
+              role_id={role}
+              mode="Edit"
             />
           </div>
         </div>
