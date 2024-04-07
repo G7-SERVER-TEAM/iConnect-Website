@@ -6,7 +6,7 @@ const MyBarChart = ({ uid, access_token, month }) => {
   const [priceData, setPriceData] = useState([]);
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

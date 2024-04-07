@@ -9,8 +9,11 @@ const ManageAccountForm = ({
   username = "",
   firstname = "",
   lastname = "",
-  location = "",
+  location = "ฟิวเจอร์พาร์ค รังสิต",
   id = "",
+  role_id = "",
+  mode = "",
+  user_id = "",
 }) => {
   const router = useRouter();
   const [uid, setUid] = useState();
@@ -20,15 +23,16 @@ const ManageAccountForm = ({
   const [area, setArea] = useState();
   const [password, setPassword] = useState();
   const [role, setRole] = useState();
+  const [isSelect, setIsSelect] = useState();
   const handleRoleChange = (event) => {
     setRole(event.target.value);
   };
 
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
+  const access_token = localStorage.getItem("token");
+  console.log(user_id);
 
   const signUp = async (access_token, information) => {
-    const ICONNECT_API = `http://192.168.1.5:8081/auth/username/sign-up`;
+    const ICONNECT_API = `http://192.168.1.37:8081/auth/username/sign-up`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
@@ -63,10 +67,54 @@ const ManageAccountForm = ({
   };
 
   const userProfile = async (access_token, information) => {
-    const ICONNECT_API = `http://192.168.1.5:8080/user/profile/create`;
+    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/create`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(information),
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const updateUserProfile = async (access_token, information, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/update/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(information),
+      });
+      if (result.ok) {
+        const responseBody = await result.text();
+        return responseBody;
+      } else {
+        throw new Error(`Error: ${result.status} - ${result.body}`);
+      }
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  const updateAccountPassword = async (access_token, information, uid) => {
+    const ICONNECT_API = `http://192.168.1.37:8081/account/update/password/${uid}`;
+    try {
+      const result = await fetch(ICONNECT_API, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${access_token}`,
@@ -103,9 +151,26 @@ const ManageAccountForm = ({
         uid: userID,
       };
       signUp(access_token, account).then(() => {
-        router.replace('/user-management');
-      })
+        router.replace("/user-management");
+      });
     });
+  };
+
+  const editProfile = () => {
+    const userInformation = {
+      name: name,
+      surname: surname,
+    };
+    const accountInformation = {
+      username: userName,
+      password: password,
+      confirm_password: password,
+    };
+    updateUserProfile(access_token, userInformation, user_id).then(() => {
+      updateAccountPassword(access_token, accountInformation, user_id).then(() => {
+        router.replace("/user-management");
+      })
+    })
   };
 
   return (
@@ -147,9 +212,10 @@ const ManageAccountForm = ({
         <Input title={`สถานที่`}>
           <input
             type="text"
-            className="px-3 py-1 border border-gray-400 rounded-full"
+            className="px-3 py-1 border border-gray-400 rounded-full disabled:bg-gray-200"
             defaultValue={location}
             onChange={(e) => setArea(e.target.value)}
+            disabled
           />
         </Input>
 
@@ -157,15 +223,20 @@ const ManageAccountForm = ({
           <div className="px-2 text-gray-600 text-lg">ตำแหน่ง</div>
           <div className="select-input">
             <select
-              className="px-3 py-1 border border-gray-400 rounded-full"
+              className="px-3 py-1 border border-gray-400 rounded-full disabled:bg-gray-400 text-black"
               value={role}
               onChange={handleRoleChange}
+              disabled={role_id != ""}
             >
               <option value="" selected>
                 เลือกตำแหน่ง
               </option>
-              <option value="2">Junior Officer</option>
-              <option value="3">Business Owner</option>
+              <option value="2" selected={role_id == 2}>
+                Junior Officer
+              </option>
+              <option value="3" selected={role_id == 3}>
+                Business Owner
+              </option>
             </select>
           </div>
         </div>
@@ -173,7 +244,7 @@ const ManageAccountForm = ({
 
       <div className="w-full flex flex-row justify-end gap-3 pt-10">
         <div
-          onClick={doSubmit}
+          onClick={mode != "" ? editProfile : doSubmit}
           className="text-center cursor-pointer bg-[#00818A] text-white px-10 py-1 rounded-full whitespace-nowrap"
         >
           บันทึก

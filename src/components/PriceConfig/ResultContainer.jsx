@@ -10,7 +10,7 @@ const ResultContainer = () => {
   const [afterUpdate, setAfterUpdate] = useState([]);
 
   const loadBeforeUpdatePrice = async (access_token, price_id) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/transaction/current/update/before/${price_id}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/update/before/${price_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -31,7 +31,7 @@ const ResultContainer = () => {
   };
 
   const loadAfterUpdatePrice = async (access_token, price_id) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/transaction/current/update/after/${price_id}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/update/after/${price_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -94,13 +94,13 @@ const ResultContainer = () => {
 
   const labels = ["9:00", "12:00", "15:00", "18:00", "21:00"];
   const data = [
-    {
-      data: beforeUpdate,
-      label: "ราคาก่อนหน้า",
-      borderColor: "#3e95cd",
-      backgroundColor: "#7bb6dd",
-      fill: false,
-    },
+    // {
+    //   data: beforeUpdate,
+    //   label: "ราคาก่อนหน้า",
+    //   borderColor: "#3e95cd",
+    //   backgroundColor: "#7bb6dd",
+    //   fill: false,
+    // },
     {
       data: afterUpdate,
       label: "ราคาหลังการปรับปรุง",

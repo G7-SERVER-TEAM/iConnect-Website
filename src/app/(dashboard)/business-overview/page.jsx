@@ -14,11 +14,11 @@ const BusinessOverview = () => {
   const handleMonthChange = (event) => {
     setMonth(event.target.value);
   };
-  const uid = localStorage.getItem('uid');
-  const access_token = localStorage.getItem('token');
+  const uid = localStorage.getItem("uid");
+  const access_token = localStorage.getItem("token");
 
   const handleGetTotalPrice = async (month, access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/payment/total/income/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -39,7 +39,7 @@ const BusinessOverview = () => {
   };
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://192.168.1.5:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -162,7 +162,7 @@ const BusinessOverview = () => {
             <div className="flex borderxborder-black h-[187em] mt-[8em]">
               <div className="borderxborder-black w-[420em] bg-[#FFFFFF] rounded-[8px]">
                 <div className="borderxborder-black ml-[26em] mt-[37em] leading-[45em] h-[38em]">
-                  <h1 className="text-[30em] text-[#404B69]">รายได้เฉลี่ย</h1>
+                  <h1 className="text-[30em] text-[#404B69]">รายได้รวม</h1>
                 </div>
                 <div className="borderxborder-black ml-[26em] mt-[6em] leading-[45em] h-[52em]">
                   <h1 className="text-[48em] text-black font-bold pt-4">
@@ -190,10 +190,13 @@ const BusinessOverview = () => {
                       : priceData[new Date().getDate() - 1] ==
                         priceData[new Date().getDate() - 2]
                       ? "0"
-                      : ((priceData[new Date().getDate() - 1] -
+                      : priceData[new Date().getDate() - 1] <
+                        priceData[new Date().getDate() - 2]
+                      ? "0"
+                      : Math.floor(((priceData[new Date().getDate() - 1] -
                           priceData[new Date().getDate() - 2]) /
                           priceData[new Date().getDate() - 2]) *
-                        100}
+                        100)}
                     %
                   </h1>
                 </div>
@@ -252,6 +255,6 @@ const BusinessOverview = () => {
       </div>
     </main>
   );
-}
+};
 
 export default isAuth(BusinessOverview);
