@@ -60,7 +60,7 @@ const UsageOverview = () => {
               <p className='text-[#A7A7A7]'>จำนวนผู้เข้าใช้บริการพื้นที่จอดรถทั้งหมด</p>
               <p className='text-2xl font-bold'>{totalCustomer} คน</p>
             </div>
-            <div className=''>
+            <div>
               <select name="pick-time" id="pick-time" className='bg-[#EBEBEB] text-[#404B69] font-light rounded-full text-center' disabled>
                 <option value="ปีนี้">ปีนี้</option>
                 <option value="ปีที่แล้ว">ปีที่แล้ว</option>

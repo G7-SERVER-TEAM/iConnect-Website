@@ -177,7 +177,7 @@ export default function TransactionTable() {
   }, [access_token, convertCurrentTimeFormat, transactions]);
 
   return (
-    <Table className="col-span-4">
+    <Table className="col-span-4" aria-labelledby="closeLabel">
       <TableHeader className="flex justify-start">
         {columns.map((column) => (
           <TableColumn

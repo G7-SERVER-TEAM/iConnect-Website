@@ -119,8 +119,8 @@ export default function Sidebar({ children }) {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-center">
-          <div className={isClicked ? "bg-[#404B69] rounded-t-xl" : "hidden"}>
+        <div className={isClicked ? "bg-[#404B69] rounded-xl flex flex-col items-center" : "rounded-xl flex flex-col items-center"}>
+          <div className={isClicked ? "bg-[#404B69] rounded-t-xl " : "hidden"}>
             <Link
               href="/edit-profile"
               className="profile__upward__btn hover:bg-[#00818A] hover:rounded-t-xl"
@@ -141,13 +141,13 @@ export default function Sidebar({ children }) {
             type={"button"}
             className={
               isClicked
-                ? "profile__btn bg-[#404B69] border-t-2 border-solid border-[#A7A7A7]"
+                ? "profile__btn border-t-2 border-solid border-[#A7A7A7]"
                 : "profile__btn"
             }
             onClick={handleClick}
           >
             <div className="xl:flex hidden flex-col">
-              <span className="text-lg xl:flex hidden">
+              <span className="xl:inline-block hidden">
                 {name} {surname}
               </span>
               <span className="text-xs xl:flex hidden">

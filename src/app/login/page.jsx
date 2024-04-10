@@ -80,7 +80,7 @@ export default function Login() {
             Business Owner
           </button>
         </div>
-        <form className="flex flex-col" action={handleLogin}>
+        <form className="flex flex-col w-[15.5em]" action={handleLogin}>
           {isLogInFailed ? (
             <div className="bg-red-200 rounded-lg p-4 text-center">
               <p className="text-gray-500">We do not recognize</p>
@@ -96,8 +96,8 @@ export default function Login() {
             value={user.username}
             style={
               isLogInFailed
-                ? "block border-red-500 border-[2px] rounded-[30px] w-full px-5"
-                : "block border-black border-[1px] rounded-[30px] w-full px-5"
+                ? "block border-red-500 border-[2px] rounded-[30px] w-full px-2"
+                : "block border-black border-[1px] rounded-[30px] w-full px-2"
             }
             onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
@@ -108,8 +108,8 @@ export default function Login() {
             value={user.password}
             style={
               isLogInFailed
-                ? "block border-red-500 border-[2px] rounded-[30px] w-full px-5"
-                : "block border-black border-[1px] rounded-[30px] w-full px-5"
+                ? "block border-red-500 border-[2px] rounded-[30px] w-full px-2"
+                : "block border-black border-[1px] rounded-[30px] w-full px-2"
             }
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />

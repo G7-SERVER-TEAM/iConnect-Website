@@ -1,8 +1,8 @@
-import { Inter } from 'next/font/google'
+import { Anuphan } from 'next/font/google'
 import './globals.css'
 
 
-const inter = Inter({ subsets: ['latin'] })
+const anuphan = Anuphan({ subsets: ['thai'] })
 
 export const metadata = {
   title: 'Admin Portal',
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={anuphan.className}>
         {children}
       </body>
     </html>
