@@ -113,13 +113,16 @@ const BusinessOverview = () => {
   return (
     <main className="h-screen borderxborder-black text-[calc(1024px/1536)] lg:text-[calc(100vw/1536)]">
       <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
-        <div className="borderxborder-black mt-[50em] pt-[6em] pl-[47em] leading-[27em]">
-          <h1 className="text-[30em] text-black borderxborder-black font-bold">
+        {/* <div className="borderxborder-black mt-[50em] leading-[27em]">
+          <h1 className="text-[30em] text-black borderxborder-black font-bold mx-[8.5em]">
             ภาพรวมธรุกิจ
           </h1>
-        </div>
+        </div> */}
         <div className="borderborder-black flex mt-[17em]">
           <div className="borderborder-black p-[10em] m-auto">
+            <h1 className="text-[30em] text-black borderxborder-black font-bold">
+              ภาพรวมธรุกิจ
+            </h1>
             <div className="flex borderxborder-black h-[28em]">
               <div className="borderxborder-red-500 ml-[546em] mx-[12em] w-[110em] h-[24.89em]">
                 <select

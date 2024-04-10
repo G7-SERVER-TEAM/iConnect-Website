@@ -1,6 +1,6 @@
 
 export async function login(user) {
-    const ICONNECT_API = "http://192.168.1.37:8081/auth/username/login";
+    const ICONNECT_API = "http://localhost:8081/auth/username/login";
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",

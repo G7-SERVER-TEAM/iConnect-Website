@@ -81,9 +81,15 @@ const MyBarChart = ({ uid, access_token, month }) => {
     scales: {
       x: {
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
       },
       y: {
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
       },
     },
   };

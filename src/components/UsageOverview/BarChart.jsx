@@ -81,7 +81,6 @@ const BarChart = () => {
     };
 
     fetchOverview();
-
     setChartData({
       labels: [
         "Jan",
