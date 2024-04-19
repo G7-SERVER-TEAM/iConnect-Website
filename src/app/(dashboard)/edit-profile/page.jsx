@@ -1,16 +1,15 @@
 "use client";
 
-import { useState } from 'react'
-import Container from '@/components/Container'
-import PageTitle from '@/components/PageTitle'
-import ProfileImage from '@/components/ManageAccount/ProfileImage'
-import Form from '@/components/Profile/Form'
-import isAuth from '@/components/isAuth'
+import { useState } from "react";
+import Container from "@/components/Container";
+import PageTitle from "@/components/PageTitle";
+import ProfileImage from "@/components/ManageAccount/ProfileImage";
+import Form from "@/components/Profile/Form";
+import isAuth from "@/components/isAuth";
 
 const EditProfile = () => {
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
-  const uid = 4;
+  const access_token = localStorage.getItem("token");
+  const uid = localStorage.getItem('uid');
 
   const [userId, setUserId] = useState();
   const [username, setUsername] = useState();
@@ -18,7 +17,7 @@ const EditProfile = () => {
   const [lastname, setLastname] = useState();
 
   const userProfile = async (access_token, uid) => {
-    const ICONNECT_API = `http://10.4.13.53:8081/account/myAccount/${uid}`;
+    const ICONNECT_API = `http://192.168.1.37:8081/account/myAccount/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -43,7 +42,7 @@ const EditProfile = () => {
     setFirstname(profile.result.name);
     setLastname(profile.result.surname);
     setUsername(profile.result.username);
-  })
+  });
 
   return (
     <Container>
@@ -58,7 +57,7 @@ const EditProfile = () => {
           </div>
           <div className="w-3/4">
             <Form
-              user_id={userId}
+              user_id={uid}
               username={username}
               firstname={firstname}
               lastname={lastname}

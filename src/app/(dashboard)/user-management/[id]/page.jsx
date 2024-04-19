@@ -9,11 +9,10 @@ import isAuth from '@/components/isAuth'
 
 const UserManagementEdit = ({ params }) => {
   const router = useRouter();
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
+  const access_token = localStorage.getItem('token');
 
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://10.4.13.53:8081/account/operation`;
+    const ICONNECT_API = `http://192.168.1.37:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -61,6 +60,8 @@ const UserManagementEdit = ({ params }) => {
             setLastname(profile.surname);
             setUsername(profile.username);
             setLocation(profile.area_name);
+            setRole(profile.role_id);
+            setUserId(profile.uid);
           }
         });
       } catch (err) {
@@ -75,6 +76,7 @@ const UserManagementEdit = ({ params }) => {
   const [firstname, setFirstname] = useState();
   const [lastname, setLastname] = useState();
   const [location, setLocation] = useState();
+  const [role, setRole] = useState();
 
   return (
     <Container>
@@ -96,6 +98,8 @@ const UserManagementEdit = ({ params }) => {
               lastname={lastname}
               location={location}
               id={params.id}
+              role_id={role}
+              mode="Edit"
             />
           </div>
         </div>

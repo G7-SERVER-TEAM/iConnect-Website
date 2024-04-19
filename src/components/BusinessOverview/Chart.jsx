@@ -6,7 +6,7 @@ const MyBarChart = ({ uid, access_token, month }) => {
   const [priceData, setPriceData] = useState([]);
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://10.4.13.53:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -64,9 +64,6 @@ const MyBarChart = ({ uid, access_token, month }) => {
     fetchData();
   }, [month, access_token]);
 
-  console.log(labels);
-  console.log(priceData);
-
   const data = {
     labels: labels,
     datasets: [
@@ -84,9 +81,15 @@ const MyBarChart = ({ uid, access_token, month }) => {
     scales: {
       x: {
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
       },
       y: {
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
       },
     },
   };

@@ -4,21 +4,21 @@ import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import MyBarChart from "@/components/BusinessOverview/Chart.jsx";
+import isAuth from "@/components/isAuth";
 
-export default function BusinessOverview() {
-  const [month, setMonth] = useState("");
+const BusinessOverview = () => {
+  const [month, setMonth] = useState("0");
   const [totalPrice, setTotalPrice] = useState("");
   const [labels, setLabels] = useState([]);
   const [priceData, setPriceData] = useState([]);
   const handleMonthChange = (event) => {
     setMonth(event.target.value);
   };
-  const uid = 1;
-  const access_token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoidGVzdDIiLCJpYXQiOjE3MTE1Mzc1ODgsImV4cCI6MTcxMTU0ODM4OH0.NRG1kslIz08RD7O45XSS0XXxeZbkmc53LqdQlbPP2F0";
+  const uid = localStorage.getItem("uid");
+  const access_token = localStorage.getItem("token");
 
   const handleGetTotalPrice = async (month, access_token) => {
-    const ICONNECT_API = `http://10.4.13.53:8082/payment/total/income/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -39,7 +39,7 @@ export default function BusinessOverview() {
   };
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://10.4.13.53:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -110,19 +110,19 @@ export default function BusinessOverview() {
     fetchPricePerDay();
   }, [month, access_token]);
 
-import isAuth from '@/components/isAuth'
-
-function BusinessOverview() {
   return (
     <main className="h-screen borderxborder-black text-[calc(1024px/1536)] lg:text-[calc(100vw/1536)]">
       <div className="border border-transparent xborder-black bg-[#E4E5DB] w-[100%]">
-        <div className="borderxborder-black mt-[50em] pt-[6em] pl-[47em] leading-[27em]">
-          <h1 className="text-[30em] text-black borderxborder-black font-bold">
+        {/* <div className="borderxborder-black mt-[50em] leading-[27em]">
+          <h1 className="text-[30em] text-black borderxborder-black font-bold mx-[8.5em]">
             ภาพรวมธรุกิจ
           </h1>
-        </div>
+        </div> */}
         <div className="borderborder-black flex mt-[17em]">
           <div className="borderborder-black p-[10em] m-auto">
+            <h1 className="text-[30em] text-black borderxborder-black font-bold">
+              ภาพรวมธรุกิจ
+            </h1>
             <div className="flex borderxborder-black h-[28em]">
               <div className="borderxborder-red-500 ml-[546em] mx-[12em] w-[110em] h-[24.89em]">
                 <select
@@ -165,7 +165,7 @@ function BusinessOverview() {
             <div className="flex borderxborder-black h-[187em] mt-[8em]">
               <div className="borderxborder-black w-[420em] bg-[#FFFFFF] rounded-[8px]">
                 <div className="borderxborder-black ml-[26em] mt-[37em] leading-[45em] h-[38em]">
-                  <h1 className="text-[30em] text-[#404B69]">รายได้เฉลี่ย</h1>
+                  <h1 className="text-[30em] text-[#404B69]">รายได้รวม</h1>
                 </div>
                 <div className="borderxborder-black ml-[26em] mt-[6em] leading-[45em] h-[52em]">
                   <h1 className="text-[48em] text-black font-bold pt-4">
@@ -193,10 +193,13 @@ function BusinessOverview() {
                       : priceData[new Date().getDate() - 1] ==
                         priceData[new Date().getDate() - 2]
                       ? "0"
-                      : ((priceData[new Date().getDate() - 1] -
+                      : priceData[new Date().getDate() - 1] <
+                        priceData[new Date().getDate() - 2]
+                      ? "0"
+                      : Math.floor(((priceData[new Date().getDate() - 1] -
                           priceData[new Date().getDate() - 2]) /
                           priceData[new Date().getDate() - 2]) *
-                        100}
+                        100)}
                     %
                   </h1>
                 </div>
@@ -232,15 +235,6 @@ function BusinessOverview() {
                         วันนี้
                       </h1>
                     </div>
-                </div>    
-                <div className="borderxborder-black mt-[13em] h-[330em] w-[857em] pt-[3em] bg-[#FFFFFF] rounded-[8px]"> 
-                  <div className="borderxborder-black ml-[26em] mt-[5em] leading-[45em] h-[38em]">
-                    <h1 className="text-[#404B69] borderxborder-black text-[30em]">
-                      รายได้
-                    </h1> 
-                  </div>
-                  <div className="borderxborder-black w-[800em] h-[260em] mx-[auto] mt-[10em]">
-                    <MyBarChart/>
                   </div>
                 </div>
               </div>
@@ -264,9 +258,6 @@ function BusinessOverview() {
       </div>
     </main>
   );
-}
-  )
-}
+};
 
-
-export default isAuth(BusinessOverview)
+export default isAuth(BusinessOverview);

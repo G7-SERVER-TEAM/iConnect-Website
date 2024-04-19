@@ -15,8 +15,7 @@ export async function login(user) {
         localStorage.setItem("token", account.access_token)
         localStorage.setItem("uid", account.uid)
         localStorage.setItem("role_id", account.role_id)
-
-        console.log(account)
+        localStorage.setItem("area_id", account.area);
         return true
       } 
     } catch (err) {
