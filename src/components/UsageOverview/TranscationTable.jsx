@@ -99,7 +99,7 @@ export default function TransactionTable() {
   const [transactions, setTransaction] = useState([]);
 
   const loadTotalCompleteTransaction = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/allcomplete`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/allcomplete`;
     try {
       const information = {
         status: "FINISH",

@@ -13,7 +13,7 @@ const CustomerAnalytics = () => {
   const [maxUsage, setMaxUsage] = useState(0);
 
   const loadMaxCustomer = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/max/transaction`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/max/transaction`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -33,7 +33,7 @@ const CustomerAnalytics = () => {
     }
   };
   const loadMinCustomer = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/min/transaction`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/min/transaction`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -53,7 +53,7 @@ const CustomerAnalytics = () => {
     }
   };
   const loadCurrentCustomer = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/user`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/user`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -73,7 +73,7 @@ const CustomerAnalytics = () => {
     }
   };
   const loadMaxUsage = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/max/usage`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/max/usage`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

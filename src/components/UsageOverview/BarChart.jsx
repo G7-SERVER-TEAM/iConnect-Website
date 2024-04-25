@@ -23,7 +23,7 @@ const BarChart = () => {
   const access_token = localStorage.getItem("token");
 
   const loadOverview = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/overview`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/overview`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

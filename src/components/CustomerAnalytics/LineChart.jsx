@@ -30,7 +30,7 @@ const LineChart = () => {
   const [loadCharData, setLoadCharData] = useState([]);
 
   const loadUsageTransaction = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/usage/transaction`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/usage/transaction`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
