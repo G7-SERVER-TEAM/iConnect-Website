@@ -26,7 +26,7 @@ const UserManagement = () => {
   const access_token = localStorage.getItem('token');
 
   const deleteOperationTeamAccount = async (access_token, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/delete/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8080/user/profile/delete/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "DELETE",
@@ -47,7 +47,7 @@ const UserManagement = () => {
   }; 
 
   const deleteOperationTeamProfile = async (access_token, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/delete/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8080/user/profile/delete/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "DELETE",
@@ -68,7 +68,7 @@ const UserManagement = () => {
   }; 
 
   const loadOperationTeam = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8081/account/operation`;
+    const ICONNECT_API = `http://10.4.13.158:8081/account/operation`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -133,12 +133,6 @@ const UserManagement = () => {
         <PageTitle>จัดการสมาชิก</PageTitle>
 
         <div className="w-full flex flex-col sm:flex-row justify-end items-center gap-3">
-          <div className="w-full">
-            <input
-              placeholder="Search for account..."
-              className="w-full px-4 py-2 rounded-full"
-            />
-          </div>
           <div className="">
             <a
               href="/user-management/add"

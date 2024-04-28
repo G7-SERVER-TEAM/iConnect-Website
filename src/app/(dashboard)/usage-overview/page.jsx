@@ -11,7 +11,7 @@ const UsageOverview = () => {
 
 
   const loadTotalCustomer = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/allUser`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/allUser`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -69,12 +69,6 @@ const UsageOverview = () => {
           </div>
           <BarChart className="col-span-1"/>
         </div>
-      </div>
-
-      <div className='flex justify-end p-4'>
-        <Searchbar 
-          placeholder={'Search for transaction...'}
-        />
       </div>
       
       <div className='grid grid-cols-4 p-4'>

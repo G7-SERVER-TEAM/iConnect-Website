@@ -67,7 +67,7 @@ const SettingContainer = ({ title }) => {
 
   const doSubmit = () => {
     const updatePriceConfiguration = async (access_token, price_id) => {
-      const ICONNECT_API = `http://192.168.1.37:8082/area/price/update/${price_id}`;
+      const ICONNECT_API = `http://10.4.13.158:8082/area/price/update/${price_id}`;
       const information = {
         start_time: new Date(),
         configuration: settings,
@@ -99,7 +99,7 @@ const SettingContainer = ({ title }) => {
   };
 
   const loadPriceConfiguration = async (access_token, price_id) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/area/price/${price_id}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/area/price/${price_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

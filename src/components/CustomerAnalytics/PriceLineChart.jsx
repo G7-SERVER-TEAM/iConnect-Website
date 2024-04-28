@@ -30,7 +30,7 @@ const PriceLineChart = () => {
   const [loadCharData, setLoadCharData] = useState([]);
 
   const loadUsageTransaction = async (access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/configuration/rate`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/configuration/rate`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

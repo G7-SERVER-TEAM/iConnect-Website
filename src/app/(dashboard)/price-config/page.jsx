@@ -18,7 +18,7 @@ const PriceConfig = () => {
       ? ""
       : localStorage.getItem("price_id");
   const getAreaName = async (access_token, area_id) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/area/id/${area_id}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/area/id/${area_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -38,7 +38,7 @@ const PriceConfig = () => {
     }
   };
   const loadPriceConfiguration = async (access_token, id) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/area/price/${id}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/area/price/${id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",

@@ -18,7 +18,7 @@ const BusinessOverview = () => {
   const access_token = localStorage.getItem("token");
 
   const handleGetTotalPrice = async (month, access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/${month}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/payment/total/income/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -39,7 +39,7 @@ const BusinessOverview = () => {
   };
 
   const handlePricePerDay = async (month, access_token) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/payment/total/income/day/${month}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/payment/total/income/day/${month}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -121,7 +121,7 @@ const BusinessOverview = () => {
         <div className="borderborder-black flex mt-[17em]">
           <div className="borderborder-black p-[10em] m-auto">
             <h1 className="text-[30em] text-black borderxborder-black font-bold">
-              ภาพรวมธรุกิจ
+              ภาพรวมธุรกิจ
             </h1>
             <div className="flex borderxborder-black h-[28em]">
               <div className="borderxborder-red-500 ml-[546em] mx-[12em] w-[110em] h-[24.89em]">
@@ -169,7 +169,7 @@ const BusinessOverview = () => {
                 </div>
                 <div className="borderxborder-black ml-[26em] mt-[6em] leading-[45em] h-[52em]">
                   <h1 className="text-[48em] text-black font-bold pt-4">
-                    {totalPrice} บาท
+                    {parseInt(totalPrice).toLocaleString()} บาท
                   </h1>
                 </div>
               </div>

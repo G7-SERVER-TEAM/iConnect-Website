@@ -32,7 +32,7 @@ const ManageAccountForm = ({
   console.log(user_id);
 
   const signUp = async (access_token, information) => {
-    const ICONNECT_API = `http://192.168.1.37:8081/auth/username/sign-up`;
+    const ICONNECT_API = `http://10.4.13.158:8081/auth/username/sign-up`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
@@ -67,7 +67,7 @@ const ManageAccountForm = ({
   };
 
   const userProfile = async (access_token, information) => {
-    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/create`;
+    const ICONNECT_API = `http://10.4.13.158:8080/user/profile/create`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "POST",
@@ -89,7 +89,7 @@ const ManageAccountForm = ({
   };
 
   const updateUserProfile = async (access_token, information, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/update/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8080/user/profile/update/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "PATCH",
@@ -111,7 +111,7 @@ const ManageAccountForm = ({
   };
 
   const updateAccountPassword = async (access_token, information, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8081/account/update/password/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8081/account/update/password/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "PATCH",

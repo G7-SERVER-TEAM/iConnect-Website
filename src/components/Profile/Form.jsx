@@ -21,7 +21,7 @@ const ProfileForm = ({
   const [confirmPassword, setConfirmPassword] = useState();
 
   const updateUserProfile = async (access_token, information, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8080/user/profile/update/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8080/user/profile/update/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "PATCH",
@@ -43,7 +43,7 @@ const ProfileForm = ({
   };
 
   const updateAccountPassword = async (access_token, information, uid) => {
-    const ICONNECT_API = `http://192.168.1.37:8081/account/update/password/${uid}`;
+    const ICONNECT_API = `http://10.4.13.158:8081/account/update/password/${uid}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "PATCH",

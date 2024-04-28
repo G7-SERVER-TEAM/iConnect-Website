@@ -10,7 +10,7 @@ const ResultContainer = () => {
   const [afterUpdate, setAfterUpdate] = useState([]);
 
   const loadBeforeUpdatePrice = async (access_token, price_id) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/update/before/${price_id}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/update/before/${price_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
@@ -31,7 +31,7 @@ const ResultContainer = () => {
   };
 
   const loadAfterUpdatePrice = async (access_token, price_id) => {
-    const ICONNECT_API = `http://192.168.1.37:8082/transaction/current/update/after/${price_id}`;
+    const ICONNECT_API = `http://10.4.13.158:8082/transaction/current/update/after/${price_id}`;
     try {
       const result = await fetch(ICONNECT_API, {
         method: "GET",
